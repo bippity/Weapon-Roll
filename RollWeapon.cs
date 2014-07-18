@@ -47,7 +47,7 @@ namespace RollWeapon
         {
             #region itemList
             389, //Dao of Pow
-            1311, //Flower Pow
+            1259, //Flower Pow
             1297, //Golem Fist
             1314, //KO Cannon
             537, //Cobalt Naginata
