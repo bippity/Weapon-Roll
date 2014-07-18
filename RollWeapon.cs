@@ -23,7 +23,7 @@ namespace RollWeapon
 
 		public override string Author
 		{
-			get { return "Bippity, originally by NicatronTg"; }
+			get { return "Bippity"; }
 		}
 
 		public override string Description
@@ -115,7 +115,7 @@ namespace RollWeapon
 
 		public override void Initialize()
 		{
-			TShockAPI.Commands.ChatCommands.Add(new Command("rollweapon", Roll, "roll"));
+			TShockAPI.Commands.ChatCommands.Add(new Command("rollweapon", Roll, "rollwep"));
 		}
 
 		private void Roll(CommandArgs args)
@@ -125,7 +125,7 @@ namespace RollWeapon
             Item give = TShock.Utils.GetItemById(hardmodeItems[r.Next(0,hardmodeItems.Length-1)]);
             
             args.Player.GiveItem(give.type, give.name, give.width, give.height, 1);
-            TSPlayer.All.SendInfoMessage(args.Player.Name + " rolled and got a " + give.name + "!");
+            TSPlayer.All.SendInfoMessage(args.Player.Name + " rolled for a weapon and got a " + give.name + "!");
 		}
 	}
 }
