@@ -91,7 +91,7 @@ namespace RollWeapon
             -24, //Yellow Phasesaber
             -23, //White Phasesaber
             -22, //Purple Phasesaber
-            -21 //Green Phasesaber
+            -21, //Green Phasesaber
             -20, //Red Phasesaber
             -19, //Blue Phasesaber
             426, //Breaker Blade
@@ -110,6 +110,19 @@ namespace RollWeapon
             1227, //Chlorophyte Saber
             723, //Beam Sword
             671, //Keybrand
+            1826, //The Horseman's Blade
+            1928, //Christmas Tree Sword
+            2611, //Flairon
+            2622, //Razorblade Typhoon
+            2623, //Bubble Gun
+            1946, //Snowman Cannon
+            1946, //North Pole
+            1931, //Blizzard Staff
+            1930, //Razorpine
+            1910, //Elf Melter
+            1837, //Stake Launcher
+            1782, //Candy Corn Rifle
+            1801 //Bat Scepter
 #endregion
         };
 
@@ -124,7 +137,7 @@ namespace RollWeapon
             
             Item give = TShock.Utils.GetItemById(hardmodeItems[r.Next(0,hardmodeItems.Length-1)]);
             
-            args.Player.GiveItem(give.type, give.name, give.width, give.height, 1);
+            args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, 1);
             TSPlayer.All.SendInfoMessage(args.Player.Name + " rolled for a weapon and got a " + give.name + "!");
 		}
 	}
