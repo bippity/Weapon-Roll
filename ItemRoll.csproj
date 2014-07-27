@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RollWeapon</RootNamespace>
-    <AssemblyName>RollWeapon</AssemblyName>
+    <AssemblyName>ItemRoll</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,7 +48,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RollWeapon.cs" />
+    <Compile Include="ItemRoll.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

@@ -9,7 +9,7 @@ using TShockAPI;
 namespace RollWeapon
 {
 	[ApiVersion(1, 16)]
-	public class RollWeapon : TerrariaPlugin
+	public class ItemRoll : TerrariaPlugin
 	{
 		public override Version Version
 		{
@@ -18,7 +18,7 @@ namespace RollWeapon
 
 		public override string Name
 		{
-			get { return "Weapon Roll"; }
+			get { return "Item Roll"; }
 		}
 
 		public override string Author
@@ -31,7 +31,7 @@ namespace RollWeapon
 			get { return "Rolls a random weapon"; }
 		}
 
-		public RollWeapon(Main game) : base(game)
+		public ItemRoll(Main game) : base(game)
 		{
 		}
 
@@ -128,17 +128,19 @@ namespace RollWeapon
 
 		public override void Initialize()
 		{
-			TShockAPI.Commands.ChatCommands.Add(new Command("rollweapon", Roll, "rollwep"));
+			TShockAPI.Commands.ChatCommands.Add(new Command("itemroll", Roll, "itemroll"));
 		}
 
 		private void Roll(CommandArgs args)
 		{
+            
 			Random r = new Random();
+
+            Item give = TShock.Utils.GetItemById(r.Next(-48, Main.maxItemTypes));
+            give.stack = r.Next(1, 20);
             
-            Item give = TShock.Utils.GetItemById(hardmodeItems[r.Next(0,hardmodeItems.Length-1)]);
-            
-            args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, 1);
-            TSPlayer.All.SendInfoMessage(args.Player.Name + " rolled for a weapon and got a " + give.name + "!");
+            args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, give.stack);
+            TSPlayer.All.SendInfoMessage(args.Player.Name + " rolled for an item and got a " + give.name + "!");
 		}
 	}
 }
