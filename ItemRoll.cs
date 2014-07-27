@@ -137,9 +137,8 @@ namespace RollWeapon
 			Random r = new Random();
 
             Item give = TShock.Utils.GetItemById(r.Next(-48, Main.maxItemTypes));
-            give.stack = r.Next(1, 20);
             
-            args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, give.stack);
+            args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, 1);
             TSPlayer.All.SendInfoMessage(args.Player.Name + " rolled for an item and got a " + give.name + "!");
 		}
 	}
