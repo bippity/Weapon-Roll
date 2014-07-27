@@ -137,9 +137,14 @@ namespace RollWeapon
 			Random r = new Random();
 
             Item give = TShock.Utils.GetItemById(r.Next(-48, Main.maxItemTypes));
+            while (TShock.Itembans.ItemIsBanned(give.name))
+            {
+                args.Player.SendErrorMessage("Rolled a banned item. Rerolling...");
+                give = TShock.Utils.GetItemById(r.Next(-48, Main.maxItemTypes));
+            }
             
             args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, 1);
-            TSPlayer.All.SendInfoMessage(args.Player.Name + " rolled for an item and got a " + give.name + "!");
+            TSPlayer.All.SendSuccessMessage(args.Player.Name + " rolled for an item and got a " + give.name + "!");
 		}
 	}
 }
