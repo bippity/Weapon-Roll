@@ -8,7 +8,7 @@ using TShockAPI;
 
 namespace RollWeapon
 {
-	[ApiVersion(1, 22)]
+	[ApiVersion(1, 23)]
 	public class ItemRoll : TerrariaPlugin
 	{
 		public override Version Version
@@ -52,7 +52,7 @@ namespace RollWeapon
                 give = TShock.Utils.GetItemById(r.Next(-48, Main.maxItemTypes));
             }
 
-            int stack = r.Next(1, give.maxStack / 2);
+            int stack = r.Next(1, (give.maxStack / 2)+1);
             args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, 1);
             TSPlayer.All.SendSuccessMessage(args.Player.Name + " rolled for an item and got a " + give.name + "!");
 		}
