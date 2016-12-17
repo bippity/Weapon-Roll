@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Terraria;
 using TerrariaApi.Server;
 using TShockAPI;
 
 namespace RollWeapon
 {
-	[ApiVersion(1, 23)]
+	[ApiVersion(2, 0)]
 	public class ItemRoll : TerrariaPlugin
 	{
 		public override Version Version
