@@ -5,7 +5,7 @@ using TShockAPI;
 
 namespace RollWeapon
 {
-	[ApiVersion(2, 0)]
+	[ApiVersion(2, 1)]
 	public class ItemRoll : TerrariaPlugin
 	{
 		public override Version Version
@@ -43,15 +43,15 @@ namespace RollWeapon
 			Random r = new Random();
 
             Item give = TShock.Utils.GetItemById(r.Next(-48, Main.maxItemTypes));
-            while (TShock.Itembans.ItemIsBanned(give.name))
+            while (TShock.Itembans.ItemIsBanned(give.Name))
             {
                 args.Player.SendErrorMessage("Rolled a banned item. Rerolling...");
                 give = TShock.Utils.GetItemById(r.Next(-48, Main.maxItemTypes));
             }
 
             int stack = r.Next(1, (give.maxStack / 2)+1);
-            args.Player.GiveItem(give.type, give.name, args.TPlayer.width, args.TPlayer.height, 1);
-            TSPlayer.All.SendSuccessMessage(args.Player.Name + " rolled for an item and got a " + give.name + "!");
+            args.Player.GiveItem(give.type, give.Name, args.TPlayer.width, args.TPlayer.height, 1);
+            TSPlayer.All.SendSuccessMessage(args.Player.Name + " rolled for an item and got a " + give.Name + "!");
 		}
 	}
 }
